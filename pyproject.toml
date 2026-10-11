@@ -1,7 +1,7 @@
 [project]
 name = "spotter-freight-rate-ml"
 version = "0.1.0"
-description = "Add your description here"
+description = "Freight rate ML assessment — CSV ingestion into PostgreSQL and modeling"
 readme = "README.md"
 authors = [
     { name = "Armaghan Tahir", email = "armaghantahir415@gmail.com" }
@@ -10,10 +10,15 @@ requires-python = ">=3.14"
 dependencies = [
     "matplotlib>=3.11.2",
     "pandas>=3.0.6",
+    "psycopg[binary]>=3.2.0",
+    "python-dotenv>=1.0.0",
+    "sqlalchemy>=2.0.0",
 ]
 
 [project.scripts]
 spotter-freight-rate-ml = "spotter_freight_rate_ml:main"
+spotter-ingest = "pipeline.ingest:main"
+spotter-pipeline = "pipeline.pipeline:main"
 
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]

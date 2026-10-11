@@ -9,6 +9,7 @@ COPY pyproject.toml uv.lock .python-version README.md ./
 RUN uv sync --locked --no-install-project
 
 COPY pipeline/ ./pipeline/
+COPY sql/ ./sql/
 COPY data/ ./data/
 
-CMD ["python", "pipeline/pipeline.py"]
+CMD ["python", "-m", "pipeline.pipeline", "--skip-missing"]
